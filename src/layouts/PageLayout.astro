@@ -1,5 +1,7 @@
 ---
 import Head from '@/components/Head.astro'
+import Header from '@/components/Header.astro'
+import Container from '@/components/Container.astro'
 import { SITE } from '@/consts'
 
 type Props = {
@@ -14,7 +16,10 @@ const { title, description } = Astro.props
 <html lang='ko'>
   <head><Head title={`${title} | ${SITE.NAME}`} description={description} /></head>
   <body>
-    <main>
+    <main class='flex-1 py-32'>
+      <Container>
+        <Header />
+      </Container>
       <slot />
     </main>
   </body>

@@ -57,6 +57,12 @@
   * {
     @apply border-border outline-ring/50 font-pretendard;
   }
+
+  html,
+  body {
+    @apply size-full;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

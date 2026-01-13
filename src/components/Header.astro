@@ -1,0 +1,16 @@
+---
+import Container from '@/components/Container.astro'
+import { Button } from '@/components/ui/button'
+---
+
+<header class='fixed top-0 right-0 left-0 z-50 py-5 backdrop-blur-sm'>
+  <Container>
+    <div class='flex flex-wrap justify-between gap-y-2'>
+      <Button variant='ghost' size='icon-sm' }><img src='/public/duck.svg' /></Button>
+      <nav class='flex gap-1'>
+        <Button variant='ghost'>Blog</Button>
+        <Button variant='ghost'>Projects</Button>
+      </nav>
+    </div>
+  </Container>
+</header>
