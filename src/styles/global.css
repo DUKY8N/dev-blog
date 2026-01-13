@@ -83,4 +83,13 @@
   p {
     @apply font-noto-serif leading-8;
   }
+
+  .animate {
+    @apply translate-y-3 opacity-0;
+    @apply transition-all duration-700 ease-out;
+  }
+
+  .animate.show {
+    @apply translate-y-0 opacity-100;
+  }
 }
