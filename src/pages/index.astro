@@ -1,8 +1,6 @@
 ---
 import '@/styles/global.css'
 import { Button } from '@/components/ui/button'
-import { Image } from 'astro:assets'
-import loadDuckImage from '@/images/duck.png'
 ---
 
 <html lang='ko'>
@@ -15,7 +13,6 @@ import loadDuckImage from '@/images/duck.png'
   </head>
   <body>
     <h1 class='text-ctp-text text-3xl font-bold underline'>Hello world!</h1>
-    <Image src={loadDuckImage} alt='duck' height='300' } />
     <p>안녕 세상!</p>
     <pre class='font-sarasa-mono'>console.log('hello world')</pre>
     <Button>Button</Button>
