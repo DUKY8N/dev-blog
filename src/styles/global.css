@@ -46,7 +46,7 @@
 
   --font-pretendard: 'Pretendard Variable', 'sans-serif';
   --font-sarasa-mono: 'Sarasa Mono K', 'monospace';
-  --font-han-serif: 'Han Serif K', 'serif';
+  --font-noto-serif: 'Noto Serif', 'serif';
 }
 
 :root {
@@ -81,6 +81,6 @@
   }
 
   p {
-    @apply font-han-serif leading-8;
+    @apply font-noto-serif leading-8;
   }
 }
