@@ -46,6 +46,7 @@
 
   --font-pretendard: 'Pretendard Variable', 'sans-serif';
   --font-sarasa-mono: 'Sarasa Mono K', 'monospace';
+  --font-han-serif: 'Han Serif K', 'serif';
 }
 
 :root {
@@ -58,5 +59,9 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  p {
+    @apply font-han-serif;
   }
 }

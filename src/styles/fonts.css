@@ -85,3 +85,11 @@
   font-style: italic;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Han Serif K';
+  src: url('/fonts/SourceHanSerifK-VF.ttf') format('truetype');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
