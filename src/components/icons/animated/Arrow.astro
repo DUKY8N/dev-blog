@@ -1,0 +1,42 @@
+---
+import { cn } from '@/lib/utils'
+
+type Props = {
+  className?: string
+  direction?: 'right' | 'left' | 'up' | 'down' | 'up-right' | 'up-left' | 'down-right' | 'down-left'
+}
+type Direction = NonNullable<Props['direction']>
+
+const { className, direction = 'right' } = Astro.props as Props
+
+const rotateClass: Record<Direction, string> = {
+  right: 'rotate-0',
+  left: 'rotate-180',
+  up: '-rotate-90',
+  down: 'rotate-90',
+  'up-right': '-rotate-45',
+  'up-left': '-rotate-[135deg]',
+  'down-right': 'rotate-45',
+  'down-left': 'rotate-[135deg]',
+}
+---
+
+<svg
+  xmlns='http://www.w3.org/2000/svg'
+  viewBox='0 0 24 24'
+  class={cn(
+    'size-6 fill-none stroke-current stroke-2 opacity-50',
+    'transition-opacity duration-300 ease-in-out group-hover:opacity-100',
+    rotateClass[direction],
+    className,
+  )}
+  stroke-linecap='round'
+  stroke-linejoin='round'
+>
+  <path
+    class='-translate-x-2 transition-transform duration-300 ease-in-out group-hover:translate-x-0'
+    d='m12 5 7 7-7 7'></path>
+  <path
+    class='translate-x-[10px] scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100'
+    d='M5 12h14'></path>
+</svg>
