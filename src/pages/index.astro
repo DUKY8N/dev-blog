@@ -1,30 +1,56 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro'
 import Container from '@/components/Container.astro'
+import ArticleListItem from '@/components/ArticleListItem.astro'
 import { HOME } from '@/consts'
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <div class='space-y-24'>
-      <section class='animate space-y-4'>
-        <h1>개발자 임덕윤 입니다.</h1>
-        <p>
+      <section class='space-y-4'>
+        <h1 class='animate'>개발자 임덕윤 입니다.</h1>
+        <p class='animate'>
           안녕하세요, 개발자 임덕윤(Duky8n)입니다. 프론트엔드 개발을 중심으로 활동하며, 웹 기술을
           깊이 사랑합니다. 웹 환경에서 사용자 경험과 성능을 동시에 만족시키기 위해 끊임없이
           고민하고, 기술에 대한 깊은 이해를 추구합니다. 어제보다 더 나은 자신을 위해 꾸준히 나아가는
           중입니다.
         </p>
-        <p>
+        <p class='animate'>
           이곳은 제 개인 개발 블로그로, 제가 공부한 내용과 진행 중인 프로젝트를 여러분과 함께 나누는
           공간입니다. 여러분의 관심에 감사드리며, 유익한 시간이 되시기 바랍니다.
         </p>
       </section>
       <section class='animate space-y-4'>
         <h2>Projects</h2>
+        <ul>
+          <ArticleListItem
+            title='개인 개발 블로그'
+            description='markhorn.dev 스타일을 참고해서 만들었습니다.'
+            url='https://github.com/DUKY8N/dev-blog'
+            direction='up-right'
+          />
+        </ul>
       </section>
       <section class='animate space-y-4'>
         <h2>Blog posts</h2>
+        <ul>
+          <ArticleListItem
+            title='개인 개발 블로그'
+            description='이곳은 제 개인 개발 블로그로, 제가 공부한 내용과 진행 중인 프로젝트를 여러분과 함께 나누는 공간입니다. 여러분의 관심에 감사드리며, 유익한 시간이 되시기 바랍니다.'
+            url='/'
+          />
+          <ArticleListItem
+            title='왜 Astro인가?'
+            description='Astro는 JavaScript 오버헤드와 복잡성을 줄이기 위해 새로운 프런트엔드 아키텍처를 개척한 프레임워크로 가장 잘 알려져 있습니다.'
+            url='/'
+          />
+          <ArticleListItem
+            title='React'
+            description='React를 사용하면 컴포넌트라 불리는 조각들을 사용하여 사용자 인터페이스를 만들 수 있습니다.'
+            url='/'
+          />
+        </ul>
       </section>
     </div>
   </Container>

@@ -1,0 +1,40 @@
+---
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
+import Arrow from '@/components/icons/animated/Arrow.astro'
+
+type Props = {
+  title: string
+  description?: string
+  url: string
+  direction?: 'right' | 'left' | 'up' | 'down' | 'up-right' | 'up-left' | 'down-right' | 'down-left'
+}
+
+const { title, description, url, direction = 'right' } = Astro.props as Props
+---
+
+<li class='group'>
+  <a href={url}>
+    <Card
+      className='border-ctp-surface0 relative flex-row items-center rounded-none border-0 border-b bg-transparent py-4'
+    >
+      <CardHeader
+        className={cn('w-full px-0 break-keep whitespace-normal', !description && 'gap-0')}
+      >
+        <CardTitle className='leading-snug'>{title}</CardTitle>
+        {
+          description && (
+            <CardDescription className='font-noto-serif'>{description}</CardDescription>
+          )
+        }
+      </CardHeader>
+
+      <Arrow direction={direction} />
+
+      <div
+        class='group-hover:bg-ctp-surface0 absolute inset-0 -inset-x-3 -top-px -bottom-px -z-10 transition-colors duration-300 ease-in-out group-first:rounded-t-md group-last:rounded-b-md'
+      >
+      </div>
+    </Card>
+  </a>
+</li>
