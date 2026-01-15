@@ -1,6 +1,7 @@
 ---
 import Container from '@/components/Container.astro'
 import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import Logo from '@/components/Logo'
 ---
 
@@ -11,8 +12,8 @@ import Logo from '@/components/Logo'
     <div class='flex flex-wrap items-center justify-between gap-y-2'>
       <Logo client:load />
       <nav class='flex translate-x-4 gap-1'>
-        <Button variant='ghost'>Blog</Button>
-        <Button variant='ghost'>Projects</Button>
+        <a href='/blog' class={buttonVariants({ variant: 'ghost' })}> Blog </a>
+        <a href='/projects' class={buttonVariants({ variant: 'ghost' })}> Projects </a>
       </nav>
     </div>
   </Container>

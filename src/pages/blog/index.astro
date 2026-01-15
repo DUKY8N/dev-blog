@@ -1,0 +1,12 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import Container from '@/components/Container.astro'
+import { BLOG } from '@/consts'
+---
+
+<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+  <Container>
+    <h1 class='animate'>Blog</h1>
+    <p class='animate'>여기서는 개발과 관련해 제가 겪은 경험과 배운 점을 둘러보실 수 있습니다.</p>
+  </Container>
+</PageLayout>
