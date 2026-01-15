@@ -1,0 +1,20 @@
+---
+import { Link, type LucideIcon } from 'lucide-react'
+
+type Props = {
+  url: string
+  Icon?: LucideIcon
+}
+
+const { url, Icon = Link } = Astro.props
+---
+
+<a
+  href={url}
+  class='border- inline-block -translate-y-[0.35em] border-b border-dotted border-current'
+>
+  <span class='inline-flex translate-y-[0.25em] items-center gap-[0.2rem]'>
+    <slot />
+    <Icon className='h-[0.8em] w-[0.8em]' />
+  </span>
+</a>
