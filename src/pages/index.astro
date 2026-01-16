@@ -3,6 +3,7 @@ import PageLayout from '@/layouts/PageLayout.astro'
 import Container from '@/components/Container.astro'
 import ArticleListItem from '@/components/ArticleListItem.astro'
 import { HOME } from '@/consts'
+import { buttonVariants } from '@/components/ui/button'
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
@@ -22,7 +23,15 @@ import { HOME } from '@/consts'
         </p>
       </section>
       <section class='animate space-y-4'>
-        <h2>Projects</h2>
+        <div class='mb-4 flex flex-row items-center justify-between'>
+          <h2 class='m-0'>Projects</h2>
+          <a
+            href='/projects'
+            class={buttonVariants({ variant: 'ghost', className: 'translate-x-4' })}
+          >
+            더보기
+          </a>
+        </div>
         <ul>
           <ArticleListItem
             title='개인 개발 블로그'
@@ -33,7 +42,12 @@ import { HOME } from '@/consts'
         </ul>
       </section>
       <section class='animate space-y-4'>
-        <h2>Blog posts</h2>
+        <div class='mb-4 flex flex-row items-center justify-between'>
+          <h2 class='m-0'>Blog posts</h2>
+          <a href='/blog' class={buttonVariants({ variant: 'ghost', className: 'translate-x-4' })}>
+            더보기
+          </a>
+        </div>
         <ul>
           <ArticleListItem
             title='개인 개발 블로그'
