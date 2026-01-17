@@ -6,6 +6,9 @@ import { getCollection } from 'astro:content'
 import { HOME } from '@/consts'
 import { buttonVariants } from '@/components/ui/button'
 import { SITE } from '@/consts'
+import projectsData from '@/content/projects'
+
+const projects = projectsData.slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE)
 
 const blog = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
@@ -39,12 +42,16 @@ const blog = (await getCollection('blog'))
           </a>
         </div>
         <ul>
-          <ArticleListItem
-            title='개인 개발 블로그'
-            description='markhorn.dev 스타일을 참고해서 만들었습니다.'
-            url='https://github.com/DUKY8N/dev-blog'
-            direction='up-right'
-          />
+          {
+            projects.map((project) => (
+              <ArticleListItem
+                title={project.title}
+                description={project.description}
+                url={project.url}
+                direction='up-right'
+              />
+            ))
+          }
         </ul>
       </section>
       <section class='animate space-y-4'>
