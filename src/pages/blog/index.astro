@@ -3,6 +3,7 @@ import PageLayout from '@/layouts/PageLayout.astro'
 import Container from '@/components/Container.astro'
 import InlineLink from '@/components/InlineLink.astro'
 import ArticleListItem from '@/components/ArticleListItem.astro'
+import Pager from '@/components/Pager.astro'
 import { BLOG } from '@/consts'
 import { getCollection } from 'astro:content'
 
@@ -31,6 +32,7 @@ const allPosts = await getCollection('blog')
           ))
         }
       </ul>
+      <Pager currentPage={7} totalPages={10} getHref={(a) => `${a}`} />
     </div>
   </Container>
 </PageLayout>

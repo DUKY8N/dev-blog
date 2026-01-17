@@ -1,0 +1,86 @@
+---
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination'
+import { cn } from '@/lib/utils'
+
+type Props = {
+  currentPage: number
+  totalPages: number
+  getHref: (page: number) => string
+  hideIfSinglePage?: boolean
+  className?: string
+}
+
+const { currentPage, totalPages, getHref, hideIfSinglePage = true, className } = Astro.props
+
+const range = (start: number, end: number) =>
+  Array.from({ length: Math.max(end - start + 1, 0) }, (_, index) => start + index)
+
+const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max)
+
+type Slot = number | 'start-ellipsis' | 'end-ellipsis'
+
+const getSlots = (total: number, page: number): Slot[] => {
+  if (total <= 7) return range(1, total)
+  if (page <= 4) return [...range(1, 5), 'end-ellipsis', total]
+  if (page >= total - 3) return [1, 'start-ellipsis', ...range(total - 4, total)]
+  return [1, 'start-ellipsis', page - 1, page, page + 1, 'end-ellipsis', total]
+}
+
+const total = Math.max(totalPages, 1)
+const page = clamp(currentPage, 1, total)
+const shouldRender = !hideIfSinglePage || total > 1
+const slots = getSlots(total, page)
+
+const isFirstPage = page <= 1
+const isLastPage = page >= total
+const prevPage = Math.max(page - 1, 1)
+const nextPage = Math.min(page + 1, total)
+---
+
+{
+  shouldRender && (
+    <Pagination className={className}>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious
+            href={isFirstPage ? undefined : getHref(prevPage)}
+            aria-disabled={isFirstPage}
+            className={cn(isFirstPage && 'pointer-events-none opacity-50')}
+          />
+        </PaginationItem>
+
+        {slots.map((slot) => (
+          <PaginationItem key={typeof slot === 'number' ? `page-${slot}` : slot}>
+            {typeof slot === 'number' ? (
+              <PaginationLink
+                href={getHref(slot)}
+                isActive={slot === page}
+                aria-label={`Go to page ${slot}`}
+              >
+                {slot}
+              </PaginationLink>
+            ) : (
+              <PaginationEllipsis />
+            )}
+          </PaginationItem>
+        ))}
+
+        <PaginationItem>
+          <PaginationNext
+            href={isLastPage ? undefined : getHref(nextPage)}
+            aria-disabled={isLastPage}
+            className={cn(isLastPage && 'pointer-events-none opacity-50')}
+          />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  )
+}
