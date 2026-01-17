@@ -2,7 +2,11 @@
 import PageLayout from '@/layouts/PageLayout.astro'
 import Container from '@/components/Container.astro'
 import InlineLink from '@/components/InlineLink.astro'
+import ArticleListItem from '@/components/ArticleListItem.astro'
 import { BLOG } from '@/consts'
+import { getCollection } from 'astro:content'
+
+const allPosts = await getCollection('blog')
 ---
 
 <PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
@@ -16,6 +20,17 @@ import { BLOG } from '@/consts'
       <p class='animate'>
         찾으시는 게시물이 있으시다면 <InlineLink url='/blog'>여기서</InlineLink> 검색하실 수 있습니다.
       </p>
+      <ul class='animate'>
+        {
+          allPosts.map((post) => (
+            <ArticleListItem
+              url={`/blog/${post.id}/`}
+              title={post.data.title}
+              description={post.data.description}
+            />
+          ))
+        }
+      </ul>
     </div>
   </Container>
 </PageLayout>
