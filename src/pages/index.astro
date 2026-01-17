@@ -2,8 +2,14 @@
 import PageLayout from '@/layouts/PageLayout.astro'
 import Container from '@/components/Container.astro'
 import ArticleListItem from '@/components/ArticleListItem.astro'
+import { getCollection } from 'astro:content'
 import { HOME } from '@/consts'
 import { buttonVariants } from '@/components/ui/button'
+import { SITE } from '@/consts'
+
+const blog = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
@@ -49,21 +55,15 @@ import { buttonVariants } from '@/components/ui/button'
           </a>
         </div>
         <ul>
-          <ArticleListItem
-            title='개인 개발 블로그'
-            description='이곳은 제 개인 개발 블로그로, 제가 공부한 내용과 진행 중인 프로젝트를 여러분과 함께 나누는 공간입니다. 여러분의 관심에 감사드리며, 유익한 시간이 되시기 바랍니다.'
-            url='/'
-          />
-          <ArticleListItem
-            title='왜 Astro인가?'
-            description='Astro는 JavaScript 오버헤드와 복잡성을 줄이기 위해 새로운 프런트엔드 아키텍처를 개척한 프레임워크로 가장 잘 알려져 있습니다.'
-            url='/'
-          />
-          <ArticleListItem
-            title='React'
-            description='React를 사용하면 컴포넌트라 불리는 조각들을 사용하여 사용자 인터페이스를 만들 수 있습니다.'
-            url='/'
-          />
+          {
+            blog.map((post) => (
+              <ArticleListItem
+                url={`/blog/${post.id}/`}
+                title={post.data.title}
+                description={post.data.description}
+              />
+            ))
+          }
         </ul>
       </section>
     </div>
