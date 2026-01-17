@@ -1,0 +1,93 @@
+---
+import ArticleListItem from '@/components/ArticleListItem.astro'
+import Container from '@/components/Container.astro'
+import InlineLink from '@/components/InlineLink.astro'
+import Pager from '@/components/Pager.astro'
+import PageLayout from '@/layouts/PageLayout.astro'
+import { BLOG } from '@/consts'
+import { getCollection, type CollectionEntry } from 'astro:content'
+
+type PageProps = {
+  posts: CollectionEntry<'blog'>[]
+  currentPage: number
+  totalPages: number
+}
+
+export async function getStaticPaths() {
+  const POSTS_PER_PAGE = 12
+
+  const allPosts = (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+  )
+
+  const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE))
+
+  return Array.from({ length: totalPages }, (_, index) => {
+    const currentPage = index + 1
+    const start = index * POSTS_PER_PAGE
+    const end = start + POSTS_PER_PAGE
+
+    return {
+      params: { page: String(currentPage) },
+      props: {
+        posts: allPosts.slice(start, end),
+        currentPage,
+        totalPages,
+      },
+    }
+  })
+}
+
+const { posts, currentPage, totalPages } = Astro.props as PageProps
+
+const postsByYear = posts.reduce<Record<number, CollectionEntry<'blog'>[]>>((acc, post) => {
+  const year = post.data.pubDate.getFullYear()
+  acc[year] ??= []
+  acc[year].push(post)
+  return acc
+}, {})
+
+const years = Object.keys(postsByYear)
+  .map(Number)
+  .sort((a, b) => b - a)
+---
+
+<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+  <Container>
+    <div class='space-y-10'>
+      <section class='animate space-y-4'>
+        <h1>Blog</h1>
+        <p>
+          이곳에서는 개발과 관련해 제가 겪은 경험과 배운 점, 그리고 유용한 개발 도구와 흥미로운 기술
+          등등을 기록하고 있습니다.
+        </p>
+        <p>
+          찾으시는 게시물이 있으시다면 <InlineLink url='/blog'>여기서</InlineLink> 검색하실 수 있습니다.
+        </p>
+      </section>
+
+      {
+        years.map((year) => (
+          <section class='animate space-y-4'>
+            <h2>{year}</h2>
+            <ul>
+              {postsByYear[year].map((post) => (
+                <ArticleListItem
+                  url={`/blog/${post.id}/`}
+                  title={post.data.title}
+                  description={post.data.description}
+                />
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+
+      <Pager
+        currentPage={currentPage}
+        totalPages={totalPages}
+        getHref={(page) => `/blog/${page}/`}
+      />
+    </div>
+  </Container>
+</PageLayout>
