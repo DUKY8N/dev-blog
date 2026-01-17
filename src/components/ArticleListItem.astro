@@ -8,12 +8,13 @@ type Props = {
   description?: string
   url: string
   direction?: 'right' | 'left' | 'up' | 'down' | 'up-right' | 'up-left' | 'down-right' | 'down-left'
+  className?: string
 }
 
-const { title, description, url, direction = 'right' } = Astro.props as Props
+const { title, description, url, direction = 'right', className } = Astro.props as Props
 ---
 
-<li class='group'>
+<li class={cn('group', className)}>
   <a href={url}>
     <Card
       className='border-ctp-surface0 relative flex-row items-center rounded-none border-0 border-b bg-transparent py-4'
