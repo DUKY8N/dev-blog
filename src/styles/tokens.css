@@ -1,0 +1,97 @@
+:root {
+	/* Raw colors: Catppuccin Mocha */
+	--color-rosewater: #f5e0dc;
+	--color-flamingo: #f2cdcd;
+	--color-pink: #f5c2e7;
+	--color-mauve: #cba6f7;
+	--color-red: #f38ba8;
+	--color-maroon: #eba0ac;
+	--color-peach: #fab387;
+	--color-yellow: #f9e2af;
+	--color-green: #a6e3a1;
+	--color-teal: #94e2d5;
+	--color-sky: #89dceb;
+	--color-sapphire: #74c7ec;
+	--color-blue: #89b4fa;
+	--color-lavender: #b4befe;
+	--color-text: #cdd6f4;
+	--color-subtext-1: #bac2de;
+	--color-subtext-0: #a6adc8;
+	--color-overlay-2: #9399b2;
+	--color-overlay-1: #7f849c;
+	--color-overlay-0: #6c7086;
+	--color-surface-2: #585b70;
+	--color-surface-1: #45475a;
+	--color-surface-0: #313244;
+	--color-base: #1e1e2e;
+	--color-mantle: #181825;
+	--color-crust: #11111b;
+
+	/* Semantic colors */
+	--color-bg: var(--color-base);
+	--color-body: var(--color-text);
+	--color-heading: var(--color-text);
+	--color-muted: var(--color-subtext-0);
+	--color-border: var(--color-surface-0);
+	--color-hr: var(--color-surface-0);
+	--color-bullet: var(--color-overlay-0);
+	--color-quote-border: var(--color-surface-1);
+	--color-link: var(--color-blue);
+	--color-link-hover: var(--color-blue);
+	--color-code-bg: var(--color-surface-0);
+	--color-pre-bg: var(--color-mantle);
+	--color-selection-bg: var(--color-lavender);
+	--color-selection-text: var(--color-bg);
+
+	/* Typography: families */
+	--font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+		"Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+	/* Typography: sizes */
+	--font-size-body: 17px;
+	--font-size-h1: 2.25em;
+	--font-size-h2: 1.5em;
+	--font-size-h3: 1.25em;
+	--font-size-small: 0.85rem;
+	--font-size-code: 0.875em;
+
+	/* Typography: weights */
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+
+	/* Typography: line heights */
+	--line-height-body: 1.8;
+	--line-height-heading: 1.6;
+	--line-height-code: 1.7142857;
+
+	/* Spacing: scale */
+	--space-0: 0;
+	--space-0-5: 0.125rem;
+	--space-1: 0.25rem;
+	--space-1-5: 0.375rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.25rem;
+	--space-6: 1.5rem;
+	--space-7: 1.75rem;
+	--space-8: 2rem;
+	--space-12: 3rem;
+	--space-16: 4rem;
+	--space-20: 5rem;
+
+	/* Layout */
+	--post-width: 640px;
+
+	/* Spacing: semantic */
+	--article-gap: var(--space-8);
+	--content-block-gap: var(--space-5);
+	--heading-margin-top: var(--space-6);
+	--heading-margin-bottom: var(--space-2);
+	--hr-gap: var(--space-12);
+	--list-gap: var(--space-5);
+	--list-item-gap: var(--space-2);
+	--list-item-padding-left: var(--space-1-5);
+	--list-padding-left: var(--space-6);
+}
