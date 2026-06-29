@@ -1,0 +1,19 @@
+---
+import '../styles/global.css';
+
+const { title = 'dev-blog', description = '개발 블로그' } = Astro.props;
+---
+
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>DukY8n | {title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

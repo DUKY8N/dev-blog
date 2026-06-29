@@ -1,17 +1,39 @@
 ---
-
+import PostLayout from '../layouts/PostLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<PostLayout title="Astro">
+    <article>
+        <p>안녕하세요, <strong>임덕윤</strong>입니다.</p>
+        <p>프론트엔드 개발자를 목표로 하되, 백엔드와 AI 등 여러 도메인을 넘나들며 꾸준히 지식을 쌓고 있습니다.</p>
+        <hr/>
+        <h2>Timeline</h2>
+        <ul>
+            <li>삼성 SSAFY 교육 과정 이수 중 <span class="date">2026-현재</span></li>
+            <li>동국대학교 WISE캠퍼스 컴퓨터공학과 졸업 <span class="date">2019-2025</span></li>
+            <li>경주 지역문제해결 해커톤 대상 수상 <span class="date">2024</span></li>
+            <li>한국관광공사 관광데이터 활용 공모전 장려상 수상 <span class="date">2023</span></li>
+        </ul>
+        <hr/>
+        <h2>Notes</h2>
+        <ul>
+            <li>예시 글1</li>
+            <li>예시 글2</li>
+            <li>예시 글3</li>
+        </ul>
+        <hr/>
+        <h2>Logs</h2>
+        <ul>
+            <li>예시 글1</li>
+            <li>예시 글2</li>
+            <li>예시 글3</li>
+        </ul>
+        <hr/>
+        <h2>Thoughts</h2>
+        <ul>
+            <li>예시 글1</li>
+            <li>예시 글2</li>
+            <li>예시 글3</li>
+        </ul>
+    </article>
+</PostLayout>
