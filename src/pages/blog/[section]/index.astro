@@ -24,6 +24,7 @@ export async function getStaticPaths() {
 }
 
 const { section, description, entries } = Astro.props;
+const formatDate = (date: Date) => date.toISOString().slice(0, 10);
 ---
 
 <PageLayout title={section} description={description}>
@@ -33,7 +34,7 @@ const { section, description, entries } = Astro.props;
 		<p>{description}</p>
 		<ul>
 			{entries.map((entry) => (
-				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a></li>
+				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a> <span class="date">{formatDate(entry.data.date)}</span></li>
 			))}
 		</ul>
 		<BackLink />
