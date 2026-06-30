@@ -7,7 +7,7 @@ const entries = (await getCollection('blog')).sort(
 );
 
 const bySection = (section: string) =>
-	entries.filter((entry) => entry.id.startsWith(`${section}/`));
+	entries.filter((entry) => entry.id.startsWith(`${section}/`)).slice(0, 3);
 ---
 
 <PageLayout title="Astro">
@@ -23,21 +23,21 @@ const bySection = (section: string) =>
 			<li>한국관광공사 관광데이터 활용 공모전 장려상 수상 <span class="date">2023</span></li>
 		</ul>
 		<hr />
-		<h2>Notes</h2>
+		<h2><a href="/blog/notes/">Notes</a></h2>
 		<ul>
 			{bySection('notes').map((entry) => (
 				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a></li>
 			))}
 		</ul>
 		<hr />
-		<h2>Logs</h2>
+		<h2><a href="/blog/logs/">Logs</a></h2>
 		<ul>
 			{bySection('logs').map((entry) => (
 				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a></li>
 			))}
 		</ul>
 		<hr />
-		<h2>Thoughts</h2>
+		<h2><a href="/blog/thoughts/">Thoughts</a></h2>
 		<ul>
 			{bySection('thoughts').map((entry) => (
 				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a></li>

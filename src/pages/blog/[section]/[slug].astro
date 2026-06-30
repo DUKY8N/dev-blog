@@ -16,9 +16,10 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const section = entry.id.split('/')[0];
 const { Content } = await render(entry);
 ---
 
-<PostLayout {...entry.data}>
+<PostLayout {...entry.data} backHref={`/blog/${section}/`}>
 	<Content />
 </PostLayout>
