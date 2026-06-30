@@ -62,11 +62,15 @@ blockquote {
 }
 
 a {
-	color: var(--color-link);
+	color: var(--color-link-text);
+	text-decoration-color: var(--color-link-underline);
+	text-decoration-thickness: 1px;
+	text-underline-offset: var(--link-underline-offset);
 }
 
 a:hover {
-	color: var(--color-link-hover);
+	color: var(--color-link-hover-text);
+	text-decoration-color: var(--color-link-hover-underline);
 }
 
 h1,

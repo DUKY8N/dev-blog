@@ -36,8 +36,10 @@
 	--color-hr: var(--color-surface-0);
 	--color-bullet: var(--color-overlay-0);
 	--color-quote-border: var(--color-surface-1);
-	--color-link: var(--color-blue);
-	--color-link-hover: var(--color-blue);
+	--color-link-text: var(--color-body);
+	--color-link-underline: var(--color-surface-2);
+	--color-link-hover-text: var(--color-blue);
+	--color-link-hover-underline: var(--color-blue);
 	--color-code-bg: var(--color-surface-0);
 	--color-pre-bg: var(--color-mantle);
 	--color-selection-bg: var(--color-lavender);
@@ -94,4 +96,5 @@
 	--list-item-gap: var(--space-2);
 	--list-item-padding-left: var(--space-1-5);
 	--list-padding-left: var(--space-6);
+	--link-underline-offset: var(--space-1);
 }
