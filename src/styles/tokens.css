@@ -40,8 +40,7 @@
 	--color-link-underline: var(--color-surface-2);
 	--color-link-hover-text: var(--color-blue);
 	--color-link-hover-underline: var(--color-blue);
-	--color-code-bg: var(--color-surface-0);
-	--color-pre-bg: var(--color-mantle);
+	--color-code-text: var(--color-subtext-0);
 	--color-selection-bg: var(--color-lavender);
 	--color-selection-text: var(--color-bg);
 
@@ -49,6 +48,8 @@
 	--font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
 		"Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		"Liberation Mono", "Courier New", monospace;
 
 	/* Typography: sizes */
 	--font-size-body: 17px;
@@ -85,6 +86,10 @@
 
 	/* Layout */
 	--post-width: 640px;
+
+	/* Radius */
+	--radius-sm: 4px;
+	--radius-md: 0.375rem;
 
 	/* Spacing: semantic */
 	--article-gap: var(--space-8);

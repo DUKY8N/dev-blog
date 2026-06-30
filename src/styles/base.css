@@ -35,17 +35,27 @@ ol {
 	margin-block: var(--list-gap);
 }
 
-ul {
+ul,
+ol {
 	padding-left: var(--list-padding-left);
+}
+
+ul {
 	list-style-type: disc;
 }
 
-ul li {
+ol {
+	list-style-type: decimal;
+}
+
+ul li,
+ol li {
 	margin-block: var(--list-item-gap);
 	padding-left: var(--list-item-padding-left);
 }
 
-ul li::marker {
+ul li::marker,
+ol li::marker {
 	color: var(--color-bullet);
 }
 
@@ -56,9 +66,64 @@ hr {
 	background: var(--color-hr);
 }
 
+input[type="checkbox"] {
+	appearance: none;
+	position: relative;
+	display: inline-block;
+	width: 0.9rem;
+	height: 0.9rem;
+	margin: 0 var(--space-1);
+	border: 1px solid var(--color-muted);
+	border-radius: var(--radius-sm);
+	background: var(--color-bg);
+	vertical-align: -0.1em;
+}
+
+input[type="checkbox"]:checked {
+	border-color: var(--color-blue);
+	background: var(--color-blue);
+}
+
+input[type="checkbox"]:checked::before {
+	content: "";
+	position: absolute;
+	inset: 0.2rem;
+	clip-path: polygon(14% 44%, 0 58%, 38% 96%, 100% 20%, 86% 6%, 36% 66%);
+	background: var(--color-bg);
+}
+
+input[type="checkbox"]:disabled {
+	opacity: 1;
+}
+
 blockquote {
+	margin-block: var(--content-block-gap);
+	padding-left: var(--space-4);
 	border-left: 3px solid var(--color-quote-border);
 	color: var(--color-muted);
+}
+
+table {
+	display: block;
+	width: 100%;
+	margin-block: var(--content-block-gap);
+	overflow-x: auto;
+	border-collapse: collapse;
+}
+
+th,
+td {
+	padding: var(--space-2) var(--space-3);
+	border-bottom: 1px solid var(--color-border);
+}
+
+th {
+	color: var(--color-lavender);
+	font-weight: var(--font-weight-bold);
+}
+
+img {
+	border-radius: var(--radius-md);
 }
 
 a {
@@ -102,6 +167,11 @@ b {
 	font-weight: var(--font-weight-bold);
 }
 
+em,
+i {
+	font-style: italic;
+}
+
 small,
 .date {
 	font-size: var(--font-size-small);
@@ -111,16 +181,19 @@ small,
 	color: var(--color-muted);
 }
 
-code,
-pre {
-	font-size: var(--font-size-code);
+:not(pre) > code {
+	padding: var(--space-0-5) var(--space-1-5);
+	border-radius: var(--radius-sm);
+	background: var(--color-mantle);
+	color: var(--color-code-text);
+	font-family: var(--font-mono);
 }
 
-code {
-	background: var(--color-code-bg);
+.astro-code {
+	margin-block: var(--content-block-gap);
+	padding: var(--space-4);
+	border-radius: var(--radius-md);
+	background: var(--color-mantle) !important;
+	font-family: var(--font-mono);
 }
 
-pre {
-	background: var(--color-pre-bg);
-	line-height: var(--line-height-code);
-}
