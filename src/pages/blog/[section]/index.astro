@@ -35,7 +35,7 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
 		<p>{description}</p>
 		<ul>
 			{entries.map((entry) => (
-				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a> <span class="date">{formatDate(entry.data.date)}</span></li>
+				<li><a href={`/blog/${entry.id}/`}>{entry.data.title}</a> <span class="date">{formatDate(entry.data.date)}</span></li>
 			))}
 		</ul>
 		<BackLink />

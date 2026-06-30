@@ -26,21 +26,21 @@ const bySection = (section: string) =>
 		<h2><a href="/blog/notes/">Notes</a></h2>
 		<ul>
 			{bySection('notes').map((entry) => (
-				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a></li>
+				<li><a href={`/blog/${entry.id}/`}>{entry.data.title}</a></li>
 			))}
 		</ul>
 		<hr />
 		<h2><a href="/blog/logs/">Logs</a></h2>
 		<ul>
 			{bySection('logs').map((entry) => (
-				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a></li>
+				<li><a href={`/blog/${entry.id}/`}>{entry.data.title}</a></li>
 			))}
 		</ul>
 		<hr />
 		<h2><a href="/blog/thoughts/">Thoughts</a></h2>
 		<ul>
 			{bySection('thoughts').map((entry) => (
-				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a></li>
+				<li><a href={`/blog/${entry.id}/`}>{entry.data.title}</a></li>
 			))}
 		</ul>
 	</article>
