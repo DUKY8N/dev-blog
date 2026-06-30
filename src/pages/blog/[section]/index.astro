@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../../layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+	const sectionDescriptions = {
+		notes: '새롭게 배운 개념과 내용을 정리하고 기록하는 공간입니다.',
+		logs: '무언가를 시도하고 부딪히면서 쌓인 경험을 담는 공간입니다.',
+		thoughts: '회고와 커리어, 공부 방향성 등 개발자로서 하는 고민과 생각을 담는 공간입니다.',
+	};
+	const entries = await getCollection('blog');
+
+	return Object.entries(sectionDescriptions).map(([section, description]) => ({
+		params: { section },
+		props: {
+			section,
+			description,
+			entries: entries
+				.filter((entry) => entry.id.startsWith(`${section}/`))
+				.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
+		},
+	}));
+}
+
+const { section, description, entries } = Astro.props;
+---
+
+<PageLayout title={section} description={description}>
+	<article>
+		<h1>{section}</h1>
+		<p>{description}</p>
+		<ul>
+			{entries.map((entry) => (
+				<li><a href={`/blog/${entry.id}`}>{entry.data.title}</a></li>
+			))}
+		</ul>
+	</article>
+</PageLayout>

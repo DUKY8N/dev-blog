@@ -28,13 +28,14 @@ const formattedDate = date.toISOString().slice(0, 10);
 	}
 
 	.tags {
+		display: flex;
+		gap: var(--space-2);
 		margin-block: 0;
 		padding-left: 0;
 		list-style: none;
 	}
 
 	.tags li {
-		display: inline;
 		margin-block: 0;
 		padding-left: 0;
 		color: var(--color-muted);
@@ -45,7 +46,4 @@ const formattedDate = date.toISOString().slice(0, 10);
 		content: "#";
 	}
 
-	.tags li + li {
-		margin-left: var(--space-2);
-	}
 </style>
