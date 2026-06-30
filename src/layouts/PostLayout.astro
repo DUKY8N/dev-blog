@@ -9,7 +9,7 @@ const formattedDate = date.toISOString().slice(0, 10);
 <PageLayout title={title} description={description}>
 	<article>
 		<BackLink href={backHref} />
-		<h1>{title}</h1>
+		<h1 class="compact-title">{title}</h1>
 		<div class="post-meta">
 			<time class="date">{formattedDate}</time>
 			{tags.length > 0 && (

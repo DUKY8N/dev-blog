@@ -162,6 +162,10 @@ h3 {
 	font-size: var(--font-size-h3);
 }
 
+.compact-title {
+	margin: 0;
+}
+
 strong,
 b {
 	font-weight: var(--font-weight-bold);
