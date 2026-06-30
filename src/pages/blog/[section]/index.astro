@@ -24,13 +24,14 @@ export async function getStaticPaths() {
 }
 
 const { section, description, entries } = Astro.props;
+const sectionTitle = section[0].toUpperCase() + section.slice(1);
 const formatDate = (date: Date) => date.toISOString().slice(0, 10);
 ---
 
-<PageLayout title={section} description={description}>
+<PageLayout title={sectionTitle} description={description}>
 	<article>
 		<BackLink />
-		<h1 class="compact-title">{section}</h1>
+		<h1 class="compact-title">{sectionTitle}</h1>
 		<p>{description}</p>
 		<ul>
 			{entries.map((entry) => (
