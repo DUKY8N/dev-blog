@@ -4,6 +4,7 @@
 
 html {
 	background: var(--color-bg);
+	color-scheme: dark;
 	font-size: var(--font-size-root);
 	scrollbar-gutter: stable;
 }
