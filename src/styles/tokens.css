@@ -52,12 +52,12 @@
 		"Liberation Mono", "Courier New", monospace;
 
 	/* Typography: sizes */
-	--font-size-body: 17px;
-	--font-size-h1: 2.25em;
-	--font-size-h2: 1.5em;
-	--font-size-h3: 1.25em;
+	--font-size-root: 17px;
+	--font-size-h1: 2.25rem;
+	--font-size-h2: 1.5rem;
+	--font-size-h3: 1.25rem;
 	--font-size-small: 0.85rem;
-	--font-size-code: 0.875em;
+	--font-size-code: 0.875rem;
 
 	/* Typography: weights */
 	--font-weight-regular: 400;

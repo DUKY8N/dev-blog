@@ -4,6 +4,7 @@
 
 html {
 	background: var(--color-bg);
+	font-size: var(--font-size-root);
 	scrollbar-gutter: stable;
 }
 
@@ -11,7 +12,6 @@ body {
 	background: var(--color-bg);
 	color: var(--color-body);
 	font-family: var(--font-sans);
-	font-size: var(--font-size-body);
 	font-weight: var(--font-weight-regular);
 	line-height: var(--line-height-body);
     word-break: keep-all;
@@ -77,7 +77,7 @@ input[type="checkbox"] {
 	border: 1px solid var(--color-muted);
 	border-radius: var(--radius-sm);
 	background: var(--color-bg);
-	vertical-align: -0.1em;
+	vertical-align: -0.1rem;
 }
 
 input[type="checkbox"]:checked {
@@ -142,8 +142,13 @@ a:hover {
 [data-footnote-ref] {
 	display: inline-block;
 	margin-inline-start: var(--space-1);
+	color: var(--color-muted);
 	font-size: var(--font-size-small);
 	vertical-align: super;
+}
+
+[data-footnote-ref]:hover {
+	color: var(--color-body);
 }
 
 [data-footnotes] {
