@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 
-const { title = 'dev-blog', description = '개발 블로그' } = Astro.props;
+const { title = 'Dev Blog', description = '개발 블로그' } = Astro.props;
 ---
 
 <html lang="ko">
@@ -11,7 +11,7 @@ const { title = 'dev-blog', description = '개발 블로그' } = Astro.props;
 		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<title>DukY8n | {title}</title>
+		<title>{title} | DukY8n</title>
 	</head>
 	<body>
 		<slot />
