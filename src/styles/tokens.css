@@ -1,4 +1,6 @@
 :root {
+	color-scheme: dark;
+
 	/* Raw colors: Catppuccin Mocha */
 	--color-rosewater: #f5e0dc;
 	--color-flamingo: #f2cdcd;
