@@ -139,6 +139,35 @@ a:hover {
 	text-decoration-color: var(--color-link-hover-underline);
 }
 
+[data-footnote-ref] {
+	display: inline-block;
+	margin-inline-start: var(--space-1);
+	font-size: var(--font-size-small);
+	vertical-align: super;
+}
+
+[data-footnotes] {
+	margin-block-start: var(--hr-gap);
+	color: var(--color-muted);
+	font-size: var(--font-size-small);
+}
+
+[data-footnote-backref] {
+	margin-inline-start: var(--space-1);
+	color: var(--color-muted);
+	font-size: 0;
+	text-decoration: none;
+}
+
+[data-footnote-backref]:hover {
+	color: var(--color-body);
+}
+
+[data-footnote-backref]::after {
+	content: "↑";
+	font-size: var(--font-size-small);
+}
+
 h1,
 h2,
 h3,
