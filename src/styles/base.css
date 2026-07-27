@@ -3,203 +3,25 @@
 }
 
 html {
-	background: var(--color-bg);
-	color-scheme: dark;
 	font-size: var(--font-size-root);
+	color-scheme: dark;
 	scrollbar-gutter: stable;
+	background: var(--color-bg);
 }
 
 body {
-	background: var(--color-bg);
-	color: var(--color-body);
 	font-family: var(--font-sans);
 	font-weight: var(--font-weight-regular);
 	line-height: var(--line-height-body);
-    word-break: keep-all;
-    overflow-wrap: break-word;
+	color: var(--color-body);
+	background: var(--color-bg);
+	overflow-wrap: break-word;
+	word-break: keep-all;
 }
 
 ::selection {
-	background: var(--color-selection-bg);
 	color: var(--color-selection-text);
-}
-
-article {
-	margin-block: var(--article-gap);
-}
-
-p {
-	margin-block: var(--content-block-gap);
-}
-
-ul,
-ol {
-	margin-block: var(--list-gap);
-}
-
-ul,
-ol {
-	padding-left: var(--list-padding-left);
-}
-
-ul {
-	list-style-type: disc;
-}
-
-ol {
-	list-style-type: decimal;
-}
-
-ul li,
-ol li {
-	margin-block: var(--list-item-gap);
-	padding-left: var(--list-item-padding-left);
-}
-
-ul li::marker,
-ol li::marker {
-	color: var(--color-bullet);
-}
-
-hr {
-	margin-block: var(--hr-gap);
-	height: 1px;
-	border: none;
-	background: var(--color-hr);
-}
-
-input[type="checkbox"] {
-	appearance: none;
-	position: relative;
-	display: inline-block;
-	width: 0.9rem;
-	height: 0.9rem;
-	margin: 0 var(--space-1);
-	border: 1px solid var(--color-muted);
-	border-radius: var(--radius-sm);
-	background: var(--color-bg);
-	vertical-align: -0.1rem;
-}
-
-input[type="checkbox"]:checked {
-	border-color: var(--color-blue);
-	background: var(--color-blue);
-}
-
-input[type="checkbox"]:checked::before {
-	content: "";
-	position: absolute;
-	inset: 0.2rem;
-	clip-path: polygon(14% 44%, 0 58%, 38% 96%, 100% 20%, 86% 6%, 36% 66%);
-	background: var(--color-bg);
-}
-
-input[type="checkbox"]:disabled {
-	opacity: 1;
-}
-
-blockquote {
-	margin-block: var(--content-block-gap);
-	padding-left: var(--space-4);
-	border-left: 3px solid var(--color-quote-border);
-	color: var(--color-muted);
-}
-
-table {
-	display: block;
-	width: 100%;
-	margin-block: var(--content-block-gap);
-	overflow-x: auto;
-	border-collapse: collapse;
-}
-
-th,
-td {
-	padding: var(--space-2) var(--space-3);
-	border-bottom: 1px solid var(--color-border);
-}
-
-th {
-	color: var(--color-lavender);
-	font-weight: var(--font-weight-bold);
-}
-
-img {
-	border-radius: var(--radius-md);
-}
-
-a {
-	color: var(--color-link-text);
-	text-decoration-color: var(--color-link-underline);
-	text-decoration-thickness: 1px;
-	text-underline-offset: var(--link-underline-offset);
-}
-
-a:hover {
-	color: var(--color-link-hover-text);
-	text-decoration-color: var(--color-link-hover-underline);
-}
-
-[data-footnote-ref] {
-	display: inline-block;
-	margin-inline-start: var(--space-1);
-	color: var(--color-muted);
-	font-size: var(--font-size-small);
-	vertical-align: super;
-}
-
-[data-footnote-ref]:hover {
-	color: var(--color-body);
-}
-
-[data-footnotes] {
-	margin-block-start: var(--hr-gap);
-	color: var(--color-muted);
-	font-size: var(--font-size-small);
-}
-
-[data-footnote-backref] {
-	margin-inline-start: var(--space-1);
-	color: var(--color-muted);
-	font-size: 0;
-	text-decoration: none;
-}
-
-[data-footnote-backref]:hover {
-	color: var(--color-body);
-}
-
-[data-footnote-backref]::after {
-	content: "↑";
-	font-size: var(--font-size-small);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin-block: var(--heading-margin-top) var(--heading-margin-bottom);
-	color: var(--color-heading);
-	font-weight: var(--font-weight-bold);
-	line-height: var(--line-height-heading);
-}
-
-h1 {
-	font-size: var(--font-size-h1);
-}
-
-h2 {
-	font-size: var(--font-size-h2);
-}
-
-h3 {
-	font-size: var(--font-size-h3);
-}
-
-.compact-title {
-	margin: 0;
+	background: var(--color-selection-bg);
 }
 
 strong,
@@ -221,32 +43,194 @@ small,
 	color: var(--color-muted);
 }
 
-:not(pre) > code {
-	padding: var(--space-0-5) var(--space-1-5);
-	border-radius: var(--radius-sm);
-	background: var(--color-mantle);
-	color: var(--color-code-text);
-	font-family: var(--font-mono);
+a {
+	color: var(--color-link-text);
+	text-decoration-color: var(--color-link-underline);
+	text-decoration-thickness: 1px;
+	text-underline-offset: var(--link-underline-offset);
 }
 
-.astro-code {
+a:hover {
+	color: var(--color-link-hover-text);
+	text-decoration-color: var(--color-link-hover-underline);
+}
+
+article {
+	margin-block: var(--article-gap);
+}
+
+article :where(h1, h2, h3, h4, h5, h6) {
+	margin-block: var(--heading-margin-top) var(--heading-margin-bottom);
+	font-weight: var(--font-weight-bold);
+	line-height: var(--line-height-heading);
+	color: var(--color-heading);
+}
+
+article :where(h1) {
+	font-size: var(--font-size-h1);
+}
+
+article :where(h2) {
+	font-size: var(--font-size-h2);
+}
+
+article :where(h3) {
+	font-size: var(--font-size-h3);
+}
+
+.compact-title {
+	margin: 0;
+}
+
+article :where(p, ul, ol, blockquote, table, .astro-code) {
 	margin-block: var(--content-block-gap);
+}
+
+article :where(ul, ol) {
+	padding-left: var(--list-padding-left);
+}
+
+article :where(ul) {
+	list-style-type: disc;
+}
+
+article :where(ol) {
+	list-style-type: decimal;
+}
+
+article :where(li) {
+	margin-block: var(--list-item-gap);
+	padding-left: var(--list-item-padding-left);
+}
+
+article :where(li)::marker {
+	color: var(--color-bullet);
+}
+
+article :where(blockquote) {
+	padding-left: var(--space-4);
+	border-left: 3px solid var(--color-quote-border);
+	color: var(--color-muted);
+}
+
+article :where(hr) {
+	height: 1px;
+	margin-block: var(--hr-gap);
+	border: none;
+	background: var(--color-hr);
+}
+
+article :where(img) {
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--radius-md);
+}
+
+article :where(table) {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	border-collapse: collapse;
+}
+
+article :where(th, td) {
+	padding: var(--space-2) var(--space-3);
+	border-bottom: 1px solid var(--color-border);
+}
+
+article :where(th) {
+	font-weight: var(--font-weight-bold);
+	color: var(--color-lavender);
+}
+
+article :where(input[type="checkbox"]) {
+	appearance: none;
+	position: relative;
+	display: inline-block;
+	width: 0.9rem;
+	height: 0.9rem;
+	margin: 0 var(--space-1);
+	border: 1px solid var(--color-muted);
+	border-radius: var(--radius-sm);
+	background: var(--color-bg);
+	vertical-align: -0.1rem;
+}
+
+article :where(input[type="checkbox"]:checked) {
+	border-color: var(--color-blue);
+	background: var(--color-blue);
+}
+
+article :where(input[type="checkbox"]:checked)::before {
+	content: "";
+	position: absolute;
+	inset: 0.2rem;
+	clip-path: polygon(14% 44%, 0 58%, 38% 96%, 100% 20%, 86% 6%, 36% 66%);
+	background: var(--color-bg);
+}
+
+article :where(input[type="checkbox"]:disabled) {
+	opacity: 1;
+}
+
+article :where(:not(pre) > code) {
+	padding: var(--space-0-5) var(--space-1-5);
+	border-radius: var(--radius-sm);
+	font-family: var(--font-mono);
+	color: var(--color-code-text);
+	background: var(--color-mantle);
+}
+
+article :where(.astro-code) {
 	padding: var(--space-3);
 	border-radius: var(--radius-md);
-	background: var(--color-mantle) !important;
 	font-family: var(--font-mono);
 	font-size: var(--font-size-code);
 	line-height: var(--line-height-code);
+	background: var(--color-mantle) !important;
 	scrollbar-color: var(--color-surface-1) transparent;
 	scrollbar-width: thin;
 }
 
-.astro-code::-webkit-scrollbar {
+article :where(.astro-code)::-webkit-scrollbar {
 	height: var(--space-2);
 }
 
-.astro-code::-webkit-scrollbar-thumb {
+article :where(.astro-code)::-webkit-scrollbar-thumb {
 	border-radius: var(--radius-sm);
 	background: var(--color-surface-1);
 }
 
+article :where([data-footnote-ref]) {
+	display: inline-block;
+	margin-inline-start: var(--space-1);
+	font-size: var(--font-size-small);
+	color: var(--color-muted);
+	vertical-align: super;
+}
+
+article :where([data-footnote-ref]:hover) {
+	color: var(--color-body);
+}
+
+article :where([data-footnotes]) {
+	margin-block-start: var(--hr-gap);
+	font-size: var(--font-size-small);
+	color: var(--color-muted);
+}
+
+article :where([data-footnote-backref]) {
+	margin-inline-start: var(--space-1);
+	font-size: 0;
+	color: var(--color-muted);
+	text-decoration: none;
+}
+
+article :where([data-footnote-backref]:hover) {
+	color: var(--color-body);
+}
+
+article :where([data-footnote-backref])::after {
+	content: "↑";
+	font-size: var(--font-size-small);
+}
