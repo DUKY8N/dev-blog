@@ -2,7 +2,7 @@
 const { href = '/', label = '← Back' } = Astro.props;
 ---
 
-<a href={href}>{label}</a>
+<a href={href} data-astro-prefetch>{label}</a>
 
 <style>
 	a {

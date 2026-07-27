@@ -34,7 +34,7 @@ const sectionTitle = section[0].toUpperCase() + section.slice(1);
 		<p>{description}</p>
 		<ul>
 			{entries.map((entry) => (
-				<li><a href={`/blog/${entry.id}/`}>{entry.data.title}</a> <span class="date">{entry.data.date.toISOString().slice(0, 10)}</span></li>
+				<li><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a> <span class="date">{entry.data.date.toISOString().slice(0, 10)}</span></li>
 			))}
 		</ul>
 		<BackLink />

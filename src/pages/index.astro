@@ -23,24 +23,24 @@ const bySection = (section: string) =>
 			<li>한국관광공사 관광데이터 활용 공모전 장려상 수상 <span class="date">2023</span></li>
 		</ul>
 		<hr />
-		<h2><a href="/blog/notes/">Notes</a></h2>
+		<h2><a href="/blog/notes/" data-astro-prefetch>Notes</a></h2>
 		<ul>
 			{bySection('notes').map((entry) => (
-				<li><a href={`/blog/${entry.id}/`}>{entry.data.title}</a></li>
+				<li><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a></li>
 			))}
 		</ul>
 		<hr />
-		<h2><a href="/blog/logs/">Logs</a></h2>
+		<h2><a href="/blog/logs/" data-astro-prefetch>Logs</a></h2>
 		<ul>
 			{bySection('logs').map((entry) => (
-				<li><a href={`/blog/${entry.id}/`}>{entry.data.title}</a></li>
+				<li><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a></li>
 			))}
 		</ul>
 		<hr />
-		<h2><a href="/blog/thoughts/">Thoughts</a></h2>
+		<h2><a href="/blog/thoughts/" data-astro-prefetch>Thoughts</a></h2>
 		<ul>
 			{bySection('thoughts').map((entry) => (
-				<li><a href={`/blog/${entry.id}/`}>{entry.data.title}</a></li>
+				<li><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a></li>
 			))}
 		</ul>
 	</article>
