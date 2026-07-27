@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import '../styles/global.css';
 
 const { title = 'Dev Blog', description = '개발 블로그' } = Astro.props;
@@ -14,6 +15,7 @@ const { title = 'Dev Blog', description = '개발 블로그' } = Astro.props;
 		<meta name="description" content={description} />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<Font cssVariable="--font-pretendard" preload />
 		<title>{title} | DukY8n</title>
 	</head>
 	<body>
