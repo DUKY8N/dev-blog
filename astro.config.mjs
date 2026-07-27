@@ -3,6 +3,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: true,
   fonts: [
     {
       provider: fontProviders.local(),
