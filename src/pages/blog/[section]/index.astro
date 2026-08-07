@@ -25,6 +25,7 @@ export async function getStaticPaths() {
 
 const { section, description, entries } = Astro.props;
 const sectionTitle = section[0].toUpperCase() + section.slice(1);
+const staggerStep = 30;
 ---
 
 <PageLayout title={sectionTitle} description={description}>
@@ -32,11 +33,13 @@ const sectionTitle = section[0].toUpperCase() + section.slice(1);
 		<BackLink />
 		<h1 class="compact-title">{sectionTitle}</h1>
 		<p>{description}</p>
-		<ul>
-			{entries.map((entry) => (
-				<li><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a> <span class="date">{entry.data.date.toISOString().slice(0, 10)}</span></li>
+		<ul class="stagger">
+			{entries.map((entry, index) => (
+				<li style={`--stagger-delay: ${index * staggerStep}ms`}><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a> <span class="date">{entry.data.date.toISOString().slice(0, 10)}</span></li>
 			))}
 		</ul>
-		<BackLink />
+		<div class="stagger" style={`--stagger-delay: ${entries.length * staggerStep}ms`}>
+			<BackLink />
+		</div>
 	</article>
 </PageLayout>

@@ -23,5 +23,15 @@ const { title = 'Dev Blog', description = '개발 블로그' } = Astro.props;
 	</head>
 	<body>
 		<slot />
+		<script>
+			document.addEventListener('astro:page-load', () => {
+				document.querySelectorAll('.stagger > *').forEach((element) => {
+					element.getAnimations().forEach((animation) => {
+						animation.cancel();
+						animation.play();
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
