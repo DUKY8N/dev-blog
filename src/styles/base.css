@@ -237,7 +237,7 @@ article :where([data-footnote-backref])::after {
 
 .stagger > * {
 	opacity: 0;
-	animation: stagger-fade 400ms ease-in-out var(--stagger-delay, 0ms) forwards;
+	animation: stagger-fade 400ms ease-in-out calc(var(--stagger-index, 0) * 30ms) forwards;
 }
 
 @keyframes stagger-fade {

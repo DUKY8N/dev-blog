@@ -13,35 +13,29 @@ const bySection = (section: string) =>
 <PageLayout title="Home">
 	<article>
 		<p>안녕하세요, <strong>임덕윤</strong>입니다.</p>
-		<p>프론트엔드 개발자를 목표로 하되, 백엔드와 AI 등 여러 도메인을 넘나들며 꾸준히 지식을 쌓고 있습니다.</p>
-		<hr />
-		<h2>Timeline</h2>
-		<ul>
-			<li>삼성 SSAFY 교육 과정 이수 중 <span class="date">2026-현재</span></li>
-			<li>동국대학교 WISE캠퍼스 컴퓨터공학과 학사 졸업 <span class="date">2019-2025</span></li>
-			<li>경주 지역문제해결 해커톤 대상 수상 <span class="date">2024</span></li>
-			<li>한국관광공사 관광데이터 활용 공모전 장려상 수상 <span class="date">2023</span></li>
-		</ul>
-		<hr />
-		<h2><a href="/blog/notes/" data-astro-prefetch>Notes</a></h2>
-		<ul>
-			{bySection('notes').map((entry) => (
-				<li><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a></li>
+        <p>프론트엔드 개발자를 목표로 하되, 백엔드와 AI 등 여러 도메인을 넘나들며 꾸준히 지식을 쌓고 있습니다.</p>
+		<div class="stagger">
+			<div style="--stagger-index: 1">
+                <hr />
+				<h2>Timeline</h2>
+				<ul>
+					<li>삼성 SSAFY 교육 과정 이수 중 <span class="date">2026-현재</span></li>
+					<li>동국대학교 WISE캠퍼스 컴퓨터공학과 학사 졸업 <span class="date">2019-2025</span></li>
+					<li>경주 지역문제해결 해커톤 대상 수상 <span class="date">2024</span></li>
+					<li>한국관광공사 관광데이터 활용 공모전 장려상 수상 <span class="date">2023</span></li>
+				</ul>
+			</div>
+			{['notes', 'logs', 'thoughts'].map((section, index) => (
+				<div style={`--stagger-index: ${index + 2}`}>
+					<hr />
+					<h2><a href={`/blog/${section}/`} data-astro-prefetch>{section[0].toUpperCase() + section.slice(1)}</a></h2>
+					<ul>
+						{bySection(section).map((entry) => (
+							<li><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a></li>
+						))}
+					</ul>
+				</div>
 			))}
-		</ul>
-		<hr />
-		<h2><a href="/blog/logs/" data-astro-prefetch>Logs</a></h2>
-		<ul>
-			{bySection('logs').map((entry) => (
-				<li><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a></li>
-			))}
-		</ul>
-		<hr />
-		<h2><a href="/blog/thoughts/" data-astro-prefetch>Thoughts</a></h2>
-		<ul>
-			{bySection('thoughts').map((entry) => (
-				<li><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a></li>
-			))}
-		</ul>
+		</div>
 	</article>
 </PageLayout>

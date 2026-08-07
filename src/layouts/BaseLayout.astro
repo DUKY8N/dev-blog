@@ -24,7 +24,14 @@ const { title = 'Dev Blog', description = '개발 블로그' } = Astro.props;
 	<body>
 		<slot />
 		<script>
+			let initialLoad = true;
+
 			document.addEventListener('astro:page-load', () => {
+				if (initialLoad) {
+					initialLoad = false;
+					return;
+				}
+
 				document.querySelectorAll('.stagger > *').forEach((element) => {
 					element.getAnimations().forEach((animation) => {
 						animation.cancel();
