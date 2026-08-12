@@ -5,7 +5,7 @@ date: "2026-08-12T21:00:00+09:00"
 tags: [algorithm, java]
 ---
 
-입력량이 많은 알고리즘 문제에서는 `Scanner` 대신 `BufferedReader`를 사용해 입력 시간을 줄일 수 있다. 다만 입력값을 직접 나누고 필요한 자료형으로 변환하는 등 데이터 가공에 더 신경 써야 한다.
+알고리즘 문제에서는 `Scanner` 대신 `BufferedReader`를 사용해 입력 시간을 줄일 수 있다. 다만 입력값을 직접 나누고 필요한 자료형으로 변환하는 등 데이터 가공에 더 신경 써야 한다.
 
 ---
 
@@ -58,7 +58,9 @@ BufferedReader br =
     new BufferedReader(new InputStreamReader(System.in));
 ```
 
-`BufferedReader`는 `InputStreamReader`에서 전달받은 문자를 내부 버퍼에 모아 효율적으로 읽는 클래스다. `readLine()`을 호출하면 줄바꿈 문자를 기준으로 한 줄 분량의 문자를 읽어 하나의 문자열로 반환한다. 이때 줄바꿈 문자는 반환되는 문자열에 포함되지 않는다.
+`BufferedReader`는 `InputStreamReader`에서 전달받은 문자를 내부 버퍼에 모아 효율적으로 읽는 클래스다.
+
+`readLine()`을 호출하면 줄바꿈 문자를 기준으로 한 줄 분량의 문자를 읽어 하나의 문자열로 반환한다. (줄바꿈 문자는 반환되는 문자열에 포함되지 않는다)
 
 ```java
 String line = br.readLine();
@@ -66,7 +68,9 @@ String line = br.readLine();
 
 ## 4. StringTokenizer: 한 줄에 있는 여러 값 나누기
 
-한 줄에 값이 하나라면 `readLine()`의 반환값을 그대로 사용하면 된다. 하지만 한 줄에 여러 값이 공백으로 구분되어 있을 때는 `StringTokenizer`로 값을 나눈다. 다음 입력을 예로 들어 보자.
+한 줄에 값이 하나라면 `readLine()`의 반환값을 그대로 사용하면 된다.
+
+하지만 한 줄에 여러 값이 공백으로 구분되어 있을 때는 `StringTokenizer`로 값을 나눈다. 다음 입력을 예로 들어 보자.
 
 ```text
 10 20 30
@@ -81,7 +85,7 @@ StringTokenizer st = new StringTokenizer(br.readLine());
 이후 `nextToken()`을 호출할 때마다 공백으로 구분된 다음 값을 문자열로 꺼낼 수 있다.
 
 ```java
-String token = st.nextToken();
+String token = st.nextToken(); // "10"
 ```
 
 ## 5. 자료형 변환하기
