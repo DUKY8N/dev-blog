@@ -5,13 +5,18 @@ date: "2026-08-12T21:00:00+09:00"
 tags: [algorithm, java]
 ---
 
-`Scanner`는 사용하기 편리하지만 입력량이 많으면 속도가 느려질 수 있다. 따라서 실행 시간이 중요한 알고리즘 문제에서는 주로 `BufferedReader`를 사용한다.
-
-`Scanner`는 입력값을 원하는 자료형으로 바로 읽지만, `BufferedReader`는 한 줄을 문자열로 읽으므로 값을 직접 나누고 변환해야 한다.
+입력량이 많은 알고리즘 문제에서는 `Scanner` 대신 `BufferedReader`를 사용해 입력 시간을 줄일 수 있다. 다만 입력값을 직접 나누고 필요한 자료형으로 변환하는 등 데이터 가공에 더 신경 써야 한다.
 
 ---
 
 ## 전체 입력 처리 흐름
+
+입력 처리에는 다음 클래스가 사용된다.
+
+1. `System.in`
+1. `InputStreamReader`
+1. `BufferedReader`
+1. `StringTokenizer`
 
 ```text
 System.in으로 표준 입력을 바이트 단위로 받기
@@ -25,14 +30,8 @@ BufferedReader의 readLine()으로 한 줄을 문자열로 읽기
 필요한 자료형으로 변환
 ```
 
-입력 처리에는 다음 클래스가 사용된다.
 
-1. `System.in`
-1. `InputStreamReader`
-1. `BufferedReader`
-1. `StringTokenizer`
-
-각각 어떤 역할을 하는지 차례대로 살펴보자.
+각각 어떤 역할을 하는지 자세히 살펴보자.
 
 ---
 
@@ -55,7 +54,8 @@ new InputStreamReader(System.in)
 ## 3. BufferedReader: 입력을 한 줄씩 읽기
 
 ```java
-BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+BufferedReader br =
+    new BufferedReader(new InputStreamReader(System.in));
 ```
 
 `BufferedReader`는 `InputStreamReader`에서 전달받은 문자를 내부 버퍼에 모아 효율적으로 읽는 클래스다. `readLine()`을 호출하면 줄바꿈 문자를 기준으로 한 줄 분량의 문자를 읽어 하나의 문자열로 반환한다. 이때 줄바꿈 문자는 반환되는 문자열에 포함되지 않는다.
@@ -97,9 +97,9 @@ char ch = st.nextToken().charAt(0);
 
 ---
 
-## 기본 코드
+## 전체 코드
 
-알고리즘 문제에서 자주 사용하는 기본 형태는 다음과 같다.
+알고리즘 문제에서 자주 사용하는 형태는 다음과 같다.
 
 ```java
 import java.io.BufferedReader;
@@ -119,5 +119,3 @@ public class Main {
     }
 }
 ```
-
-정리하면 `Scanner`는 편리하지만 입력이 많을 때 부담이 될 수 있다. 알고리즘 문제에서는 `BufferedReader`로 한 줄을 읽고, `StringTokenizer`로 값을 나눈 뒤, 필요한 자료형으로 직접 변환하는 흐름을 익혀 두면 좋다.
