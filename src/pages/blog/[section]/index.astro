@@ -32,9 +32,23 @@ const sectionTitle = section[0].toUpperCase() + section.slice(1);
 		<BackLink />
 		<h1 class="compact-title">{sectionTitle}</h1>
 		<p>{description}</p>
-		<ul class="stagger">
+		<input
+			data-section-search
+			type="search"
+            placeholder="Search titles or tags here..."
+			aria-label="제목 또는 태그 검색"
+			autocomplete="off"
+			aria-controls="section-entries"
+		/>
+		<ul id="section-entries" class="stagger">
 			{entries.map((entry, index) => (
-				<li style={`--stagger-index: ${index}`}><a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a> <span class="date">{entry.data.date.toISOString().slice(0, 10)}</span></li>
+				<li
+					style={`--stagger-index: ${index}`}
+					data-search={[entry.data.title, ...entry.data.tags.map((tag) => `#${tag}`)].join(' ')}
+				>
+					<a href={`/blog/${entry.id}/`} data-astro-prefetch>{entry.data.title}</a>{' '}
+					<span class="date">{entry.data.date.toISOString().slice(0, 10)}</span>
+				</li>
 			))}
 		</ul>
 		<div class="stagger" style={`--stagger-index: ${entries.length}`}>
@@ -42,3 +56,57 @@ const sectionTitle = section[0].toUpperCase() + section.slice(1);
 		</div>
 	</article>
 </PageLayout>
+
+<script>
+	const normalize = (value: string) => value.normalize('NFKC').toLocaleLowerCase('ko');
+
+	document.addEventListener('astro:page-load', () => {
+		const input = document.querySelector<HTMLInputElement>('[data-section-search]');
+		if (!input) return;
+
+		const entries = [...document.querySelectorAll<HTMLElement>('[data-search]')];
+
+		input.oninput = () => {
+			const terms = normalize(input.value).trim().split(/\s+/).filter(Boolean);
+
+			for (const entry of entries) {
+				entry.hidden = !terms.every((term) => normalize(entry.dataset.search ?? '').includes(term));
+			}
+		};
+	});
+
+	document.addEventListener('keydown', (event) => {
+		const input = document.querySelector<HTMLInputElement>('[data-section-search]');
+		if (event.key !== '/' || !input || event.target === input || event.metaKey || event.ctrlKey || event.altKey) return;
+		event.preventDefault();
+		input.focus();
+	});
+</script>
+
+<style>
+	input {
+		display: block;
+		width: 100%;
+		padding: 0;
+		border: 0;
+		font: inherit;
+		font-size: var(--font-size-small);
+		color: var(--color-muted);
+		background: transparent;
+	}
+
+	input:focus-visible {
+		outline: 0;
+	}
+
+	input::-webkit-search-cancel-button {
+		display: none;
+	}
+
+	input::placeholder {
+		font-family: var(--font-nerd-symbols), var(--font-sans);
+		color: var(--color-muted);
+		user-select: none;
+		font-size: var(--font-size-small);
+	}
+</style>
