@@ -1,5 +1,5 @@
 ---
-title: "스프링은 왜 설계 원칙부터 이야기할까"
+title: "Spring 왜 설계 원칙부터 이야기할까"
 description: "역할과 구현 분리, 책임 위임, DIP와 OCP를 통해 이해하는 스프링 DI 컨테이너의 설계 목적."
 date: "2026-10-28T06:00:00+09:00"
 tags: [backend, spring]
