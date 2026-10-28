@@ -1,3 +1,8 @@
-@import './reset.css';
-@import './tokens.css';
-@import './base.css';
+/* Unlayered Astro component styles override these shared defaults. */
+@layer reset, tokens, base, typography, utilities;
+
+@import './reset.css' layer(reset);
+@import './tokens.css' layer(tokens);
+@import './base.css' layer(base);
+@import './typography.css' layer(typography);
+@import './utilities.css' layer(utilities);

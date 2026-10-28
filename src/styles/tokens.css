@@ -1,6 +1,4 @@
 :root {
-	color-scheme: dark;
-
 	/* Raw colors: Catppuccin Mocha */
 	--color-rosewater: #f5e0dc;
 	--color-flamingo: #f2cdcd;
@@ -35,6 +33,7 @@
 	--color-heading: var(--color-text);
 	--color-muted: var(--color-subtext-0);
 	--color-border: var(--color-surface-0);
+	--color-focus: var(--color-blue);
 	--color-hr: var(--color-surface-0);
 	--color-bullet: var(--color-overlay-0);
 	--color-quote-border: var(--color-surface-1);
@@ -54,7 +53,7 @@
 		SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
 	/* Typography: sizes */
-	--font-size-root: 17px;
+	--font-size-root: 106.25%;
 	--font-size-h1: 2.25rem;
 	--font-size-h2: 1.5rem;
 	--font-size-h3: 1.25rem;
@@ -88,6 +87,7 @@
 
 	/* Layout */
 	--post-width: 720px;
+	--page-gutter: var(--space-20);
 
 	/* Radius */
 	--radius-sm: 4px;
@@ -104,4 +104,10 @@
 	--list-item-padding-left: var(--space-1-5);
 	--list-padding-left: var(--space-6);
 	--link-underline-offset: var(--space-1);
+}
+
+@media (max-width: 640px) {
+	:root {
+		--page-gutter: var(--space-6);
+	}
 }
