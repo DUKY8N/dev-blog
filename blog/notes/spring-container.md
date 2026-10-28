@@ -5,7 +5,7 @@ date: "2026-10-28T16:00:00+09:00"
 tags: [backend, spring]
 ---
 
-스프링 컨테이너는 객체의 생성·연결을 대신 맡는다. 그렇다면 컨테이너 안에서는 어떤 일이 일어날까?
+스프링 컨테이너는 객체의 생성과 연결을 대신 맡는다. 그렇다면 컨테이너 안에서는 어떤 일이 일어날까?
 
 빈이 어떻게 등록되고 꺼내지는지, 그리고 자바 코드와 XML처럼 형식이 다른 설정을 컨테이너가 어떻게 똑같이 읽어 내는지 차례로 살펴본다.
 
@@ -73,7 +73,7 @@ MemoryRepo memoryRepo = ac.getBean(MemoryRepo.class); // 구현(구체 클래스
 하지만 실제 애플리케이션을 만들려면 빈 관리만으로는 부족하다. 그래서 BeanFactory를 상속한 **ApplicationContext**가 여기에 부가 기능을 더한다.
 
 - **국제화**(`MessageSource`): 접속 지역에 맞는 언어로 메시지를 보여 준다.
-- **환경 구분**(`EnvironmentCapable`): 로컬·개발·운영 환경을 나눠 설정을 달리 쓴다.
+- **환경 구분**(`EnvironmentCapable`): 로컬, 개발, 운영 환경을 나눠 설정을 달리 쓴다.
 - **이벤트**(`ApplicationEventPublisher`): 이벤트를 발행하고 구독한다.
 - **리소스 조회**(`ResourceLoader`): 파일, 클래스패스, 외부 URL 등에서 리소스를 읽는다.
 
@@ -91,7 +91,7 @@ MemoryRepo memoryRepo = ac.getBean(MemoryRepo.class); // 구현(구체 클래스
 flowchart TB
     accTitle: 설정 정보와 BeanDefinition의 관계
     accDescr: 각 형식의 설정을 Reader가 읽어 BeanDefinition을 만들고, 스프링 컨테이너가 이 메타정보를 사용해 빈을 생성한다.
-    C["<b>스프링 컨테이너</b><br/>ApplicationContext"] -->|의존| BD["<b>BeanDefinition</b><br/>역할 · 빈 설계도"]
+    C["<b>스프링 컨테이너</b><br/>ApplicationContext"] -->|의존| BD["<b>BeanDefinition</b><br/>역할: 빈 설계도"]
     BD ~~~ J & X & E
     J["자바 설정<br/>@Bean"] -.-> BD
     X["XML 설정<br/>&lt;bean&gt;"] -.->|"Reader가 읽어 생성"| BD
