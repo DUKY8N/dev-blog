@@ -1,3 +1,5 @@
+@import 'astro-pele/theme.css';
+
 article :where(h1, h2, h3, h4, h5, h6) {
 	margin-block: var(--heading-margin-top) var(--heading-margin-bottom);
 	font-weight: var(--font-weight-bold);
@@ -150,6 +152,17 @@ article :where(.astro-code)::-webkit-scrollbar {
 article :where(.astro-code)::-webkit-scrollbar-thumb {
 	border-radius: var(--radius-sm);
 	background: var(--color-surface-1);
+}
+
+article :where(.pele-diagram, .pele-error) {
+	--pele-bg: var(--color-bg);
+	--pele-fg: var(--color-body);
+	--pele-muted: var(--color-muted);
+	--pele-line: var(--color-muted);
+	--pele-surface: var(--color-mantle);
+	--pele-surface-alt: var(--color-surface-0);
+	--pele-border: var(--color-surface-2);
+	--pele-accent: var(--color-blue);
 }
 
 /* Keep long display equations scrollable without widening the page. */

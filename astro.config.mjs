@@ -1,11 +1,13 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
+import { pele } from 'astro-pele';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 
 // https://astro.build/config
 export default defineConfig({
+  integrations: [pele()],
   prefetch: true,
   fonts: [
     {
