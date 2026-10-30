@@ -1,5 +1,5 @@
 ---
-title: "Spring 빈 스코프와 빈의 수명"
+title: "Spring 빈 스코프와 관리 범위"
 description: "싱글톤과 프로토타입, 웹 스코프의 관리 범위와 서로 다른 스코프의 빈을 Provider 및 프록시로 연결하는 방법."
 date: "2026-10-30T21:00:00+09:00"
 tags: [backend, spring]
