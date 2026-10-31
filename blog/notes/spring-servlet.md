@@ -1,5 +1,5 @@
 ---
-title: "Spring MVC의 바탕이 되는 서블릿 이해하기"
+title: "Spring MVC를 떠받치는 서블릿"
 description: "서블릿과 WAS의 역할부터 HttpServletRequest와 HttpServletResponse로 요청 데이터를 읽고 응답을 작성하는 방법까지."
 date: "2026-10-30T22:00:00+09:00"
 tags: [backend, spring]
@@ -8,6 +8,8 @@ tags: [backend, spring]
 웹 브라우저와 서버는 HTTP 메시지를 주고받는다. 서버가 요청을 처리하려면 이 메시지를 한 줄씩 읽어 해석하고, 응답도 규칙에 맞춰 다시 써야 한다. 매번 이 일을 직접 한다면 정작 비즈니스 로직에는 손도 대지 못한다.
 
 자바에서는 **서블릿**이 이 반복을 대신한다. 스프링 MVC도 내부적으로는 서블릿 위에서 동작하므로, 서블릿을 알면 스프링이 요청과 응답을 어떻게 다루는지도 보인다.
+
+---
 
 ## 서블릿이란
 
@@ -148,7 +150,7 @@ response.getWriter().write(result);
 
 > **참고**: `application/json`은 스펙상 UTF-8을 쓰도록 정해져 있어서 `charset=utf-8` 같은 추가 파라미터가 의미가 없다. 단, `getWriter()`를 쓰면 charset이 자동으로 붙는데, 이걸 피하려면 `getOutputStream()`으로 출력하면 된다.
 
-## 마치며
+---
 
 서블릿 덕분에 HTTP 메시지를 직접 해석하지 않고, request에서 읽고 response에 쓰는 것만으로 요청을 처리할 수 있다. 데이터가 들어오고 나가는 형태는 세 가지뿐이고, 각각 읽고 쓰는 방법도 정해져 있다.
 
