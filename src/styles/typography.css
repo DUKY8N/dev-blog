@@ -70,6 +70,7 @@ article :where(img, video) {
 }
 
 article :where(table) {
+	font-size: var(--font-size-small);
 	display: block;
 	width: 100%;
 	overflow-x: auto;
@@ -77,11 +78,14 @@ article :where(table) {
 }
 
 article :where(th, td) {
+	vertical-align: top;
 	padding: var(--space-2) var(--space-3);
 	border-bottom: 1px solid var(--color-border);
+	overflow-wrap: normal;
 }
 
 article :where(th) {
+	text-align: start;
 	font-weight: var(--font-weight-bold);
 	color: var(--color-lavender);
 }
