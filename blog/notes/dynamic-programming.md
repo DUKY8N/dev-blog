@@ -2,7 +2,7 @@
 title: "동적계획법(DP) 개념 정리"
 description: "겹치는 부분 문제의 답을 저장하는 동적계획법의 조건과 상태 정의, 점화식, 초기 조건 및 두 가지 구현 방법."
 date: "2026-11-01T20:27:00+09:00"
-tags: [algorithm]
+tags: [algorithm, dp]
 ---
 
 동적계획법(DP, Dynamic Programming)은 같은 작은 문제가 반복해서 나올 때, 그 답을 **저장해** 한 번만 계산하는 기법이다.
