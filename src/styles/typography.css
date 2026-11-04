@@ -84,6 +84,10 @@ article :where(th, td) {
 	overflow-wrap: normal;
 }
 
+article :where(tbody:last-child > tr:last-child > th, tbody:last-child > tr:last-child > td) {
+	border-bottom: none;
+}
+
 article :where(th) {
 	text-align: start;
 	font-weight: var(--font-weight-bold);
