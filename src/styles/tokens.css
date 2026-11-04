@@ -1,31 +1,31 @@
 :root {
 	/* Raw colors: Catppuccin Mocha */
-	--color-rosewater: #f5e0dc;
-	--color-flamingo: #f2cdcd;
-	--color-pink: #f5c2e7;
-	--color-mauve: #cba6f7;
-	--color-red: #f38ba8;
-	--color-maroon: #eba0ac;
-	--color-peach: #fab387;
-	--color-yellow: #f9e2af;
-	--color-green: #a6e3a1;
-	--color-teal: #94e2d5;
-	--color-sky: #89dceb;
-	--color-sapphire: #74c7ec;
-	--color-blue: #89b4fa;
-	--color-lavender: #b4befe;
-	--color-text: #cdd6f4;
-	--color-subtext-1: #bac2de;
-	--color-subtext-0: #a6adc8;
-	--color-overlay-2: #9399b2;
-	--color-overlay-1: #7f849c;
-	--color-overlay-0: #6c7086;
-	--color-surface-2: #585b70;
-	--color-surface-1: #45475a;
-	--color-surface-0: #313244;
-	--color-base: #1e1e2e;
-	--color-mantle: #181825;
-	--color-crust: #11111b;
+	--color-rosewater: oklch(0.923 0.024 30.492);
+	--color-flamingo: oklch(0.880 0.042 17.975);
+	--color-pink: oklch(0.870 0.075 336.304);
+	--color-mauve: oklch(0.787 0.119 304.769);
+	--color-red: oklch(0.756 0.130 2.764);
+	--color-maroon: oklch(0.782 0.090 8.848);
+	--color-peach: oklch(0.824 0.101 52.629);
+	--color-yellow: oklch(0.919 0.070 86.528);
+	--color-green: oklch(0.858 0.109 142.715);
+	--color-teal: oklch(0.858 0.079 182.750);
+	--color-sky: oklch(0.847 0.083 210.255);
+	--color-sapphire: oklch(0.791 0.096 228.653);
+	--color-blue: oklch(0.766 0.111 259.885);
+	--color-lavender: oklch(0.817 0.091 277.309);
+	--color-text: oklch(0.879 0.043 272.277);
+	--color-subtext-1: oklch(0.817 0.040 272.862);
+	--color-subtext-0: oklch(0.751 0.040 273.932);
+	--color-overlay-2: oklch(0.687 0.037 274.725);
+	--color-overlay-1: oklch(0.618 0.037 276.005);
+	--color-overlay-0: oklch(0.550 0.034 277.095);
+	--color-surface-2: oklch(0.477 0.034 278.643);
+	--color-surface-1: oklch(0.404 0.032 280.152);
+	--color-surface-0: oklch(0.324 0.032 281.978);
+	--color-base: oklch(0.243 0.030 283.911);
+	--color-mantle: oklch(0.216 0.025 284.065);
+	--color-crust: oklch(0.183 0.020 284.204);
 
 	/* Semantic colors */
 	--color-bg: var(--color-base);
