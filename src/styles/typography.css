@@ -18,11 +18,21 @@ article :where(h2) {
 }
 
 article :where(h3) {
+	margin-block-start: var(--space-8);
 	font-size: var(--font-size-h3);
 }
 
 article :where(h4, h5, h6) {
+	margin-block-start: var(--space-6);
 	font-size: 1rem;
+}
+
+article :where(hr) + :where(h2, h3, h4, h5, h6) {
+	margin-block-start: 0;
+}
+
+article :where(h1, h2, h3, h4, h5, h6) + :where(h2, h3, h4, h5, h6) {
+	margin-block-start: var(--space-4);
 }
 
 article :where(p, ul, ol, blockquote, table, .astro-code) {
@@ -44,6 +54,18 @@ article :where(ol) {
 article :where(li) {
 	margin-block: var(--list-item-gap);
 	padding-inline-start: var(--list-item-padding-left);
+}
+
+article :where(li, blockquote) > :where(:first-child) {
+	margin-block-start: 0;
+}
+
+article :where(li, blockquote) > :where(:last-child) {
+	margin-block-end: 0;
+}
+
+article :where(li) > :where(ul, ol) {
+	margin-block: var(--list-item-gap);
 }
 
 article :where(li)::marker {
@@ -147,7 +169,6 @@ article :where(.astro-code) {
 	font-family: var(--font-mono);
 	font-size: var(--font-size-code);
 	line-height: var(--line-height-code);
-	/* Shiki supplies its theme background as an inline style. */
 	background: var(--color-mantle) !important;
 	scrollbar-color: var(--color-surface-1) transparent;
 	scrollbar-width: thin;
@@ -162,6 +183,19 @@ article :where(.astro-code)::-webkit-scrollbar-thumb {
 	background: var(--color-surface-1);
 }
 
+article :where(.pele-diagram) {
+	position: relative;
+	left: 50%;
+	width: max-content;
+	min-width: 100%;
+	max-width: calc(100vw - var(--space-12));
+	transform: translateX(-50%);
+}
+
+article .pele-diagram {
+	margin-block: var(--space-8);
+}
+
 article :where(.pele-diagram, .pele-error) {
 	--pele-bg: var(--color-bg);
 	--pele-fg: var(--color-body);
@@ -173,7 +207,6 @@ article :where(.pele-diagram, .pele-error) {
 	--pele-accent: var(--color-blue);
 }
 
-/* Keep long display equations scrollable without widening the page. */
 article :where(.katex-display) {
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -186,10 +219,6 @@ article :where([data-footnote-ref]) {
 	font-size: var(--font-size-small);
 	color: var(--color-muted);
 	vertical-align: super;
-}
-
-article :where([data-footnote-ref]:hover) {
-	color: var(--color-body);
 }
 
 article :where([data-footnotes]) {
@@ -205,7 +234,7 @@ article :where([data-footnote-backref]) {
 	text-decoration: none;
 }
 
-article :where([data-footnote-backref]:hover) {
+article :where([data-footnote-ref]:hover, [data-footnote-backref]:hover) {
 	color: var(--color-body);
 }
 

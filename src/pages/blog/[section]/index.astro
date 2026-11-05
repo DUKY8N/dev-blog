@@ -35,7 +35,7 @@ const sectionTitle = section[0].toUpperCase() + section.slice(1);
 		<input
 			data-section-search
 			type="search"
-            placeholder="Search titles or tags here..."
+			placeholder="Search titles or tags here..."
 			aria-label="제목 또는 태그 검색"
 			autocomplete="off"
 			aria-controls="section-entries"
@@ -84,6 +84,19 @@ const sectionTitle = section[0].toUpperCase() + section.slice(1);
 </script>
 
 <style>
+	#section-entries {
+		margin-block: var(--space-8) var(--space-12);
+
+		& > li {
+			margin-block: var(--space-4);
+		}
+
+		.date {
+			display: inline-block;
+			margin-inline-start: var(--space-2);
+		}
+	}
+
 	input {
 		display: block;
 		width: 100%;
