@@ -7,6 +7,7 @@ import remarkMath from 'remark-math';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://duky8n.com',
   integrations: [pele()],
   prefetch: true,
   fonts: [
