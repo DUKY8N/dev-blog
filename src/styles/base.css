@@ -52,9 +52,11 @@ a {
 	text-underline-offset: var(--link-underline-offset);
 }
 
-a:hover {
-	color: var(--color-link-hover-text);
-	text-decoration-color: var(--color-link-hover-underline);
+@media (hover: hover) {
+	a:hover {
+		color: var(--color-link-hover-text);
+		text-decoration-color: var(--color-link-hover-underline);
+	}
 }
 
 article {

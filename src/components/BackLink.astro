@@ -13,7 +13,9 @@ const { href = '/', label = '← Back' } = Astro.props;
 		-webkit-user-drag: none;
 	}
 
-	a:hover {
-		color: var(--color-body);
+	@media (hover: hover) {
+		a:hover {
+			color: var(--color-body);
+		}
 	}
 </style>

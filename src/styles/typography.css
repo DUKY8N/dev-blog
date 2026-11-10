@@ -234,8 +234,10 @@ article :where([data-footnote-backref]) {
 	text-decoration: none;
 }
 
-article :where([data-footnote-ref]:hover, [data-footnote-backref]:hover) {
-	color: var(--color-body);
+@media (hover: hover) {
+	article :where([data-footnote-ref]:hover, [data-footnote-backref]:hover) {
+		color: var(--color-body);
+	}
 }
 
 article :where([data-footnote-backref])::after {
