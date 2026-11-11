@@ -1,5 +1,5 @@
 ---
-title: "위상정렬 공부 노트"
+title: "위상정렬 개념 정리"
 description: "선후 관계를 지키는 위상정렬의 개념과 Kahn 알고리즘, DFS 방식, 시간복잡도와 사이클 판별을 Java 예제로 정리한다."
 date: "2026-11-11T00:00:00+09:00"
 tags: [algorithm, graph, topological-sort]
